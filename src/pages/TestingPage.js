@@ -17,6 +17,7 @@ function TestingPage() {
   const [can, setCan] = useState(true);
   const [select, setSelect] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [imgProgress, setImgProgress] = useState(0);
   const link = useNavigate();
   const question = [
     {
@@ -130,11 +131,21 @@ function TestingPage() {
     setSelect(num);
     onPoint(prop);
     setCan(false);
+    fastImg();
     setTimeout(() => {
       setProgress(progress + 1);
       setSelect(0);
       setCan(true);
     }, 500);
+    return () => {
+      clearTimeout();
+    };
+  };
+
+  const fastImg = () => {
+    setTimeout(() => {
+      setImgProgress(imgProgress + 1);
+    }, 300);
     return () => {
       clearTimeout();
     };
@@ -154,7 +165,7 @@ function TestingPage() {
   }, [progress]);
 
   const onImg = () => {
-    return question[progress].img;
+    return question[imgProgress].img;
   };
 
   const onPoint = (prop) => {
@@ -169,12 +180,7 @@ function TestingPage() {
           percent={question.length - 1}></ProgressBar>
       </ProgressBackGround>
       <Question>{question[progress].text}</Question>
-      <Img
-        src={onImg()}
-        onClick={() => {
-          console.log(mbti);
-        }}
-      />
+      <Img src={onImg()} />
       <BtnBox>
         <SelectBtn
           onClick={() => {
