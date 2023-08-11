@@ -143,9 +143,19 @@ function TestingPage() {
   };
 
   const fastImg = () => {
-    setTimeout(() => {
-      setImgProgress(imgProgress + 1);
-    }, 300);
+    if (matchMedia("screen and (min-width: 992px)").matches) {
+      setTimeout(() => {
+        setImgProgress(imgProgress + 1);
+      }, 300);
+    } else if (matchMedia("screen and (min-width: 768px)").matches) {
+      setTimeout(() => {
+        setImgProgress(imgProgress + 1);
+      }, 500);
+    } else {
+      setTimeout(() => {
+        setImgProgress(imgProgress + 1);
+      }, 250);
+    }
     return () => {
       clearTimeout();
     };
@@ -232,7 +242,7 @@ const ProgressBackGround = styled.div`
   margin-top: 5vh;
   background-color: #9c9c9c;
   width: 320px;
-  height: 16px;
+  height: 14.4px;
   border-radius: 8px;
   @media (min-width: 768px) {
     width: 440px;
@@ -247,7 +257,7 @@ const ProgressBar = styled.div`
   background-color: #0fdf65;
   transition: 0.5s ease-in-out;
   width: ${(prop) => (320 / prop.percent) * prop.progress + "px"};
-  height: 16px;
+  height: 14.4px;
   border-radius: 8px;
   @media (min-width: 768px) {
     width: ${(prop) => (440 / prop.percent) * prop.progress + "px"};
@@ -263,7 +273,7 @@ const Question = styled.div`
   margin-top: 5vh;
   color: white;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 21.6px;
   @media (min-width: 768px) {
     font-size: 30px;
   }
@@ -274,9 +284,9 @@ const Question = styled.div`
 `;
 
 const Img = styled.img`
-  margin-top: 5vh;
-  width: 200px;
-  height: 200px;
+  margin-top: 3vh;
+  width: 180px;
+  height: 180px;
   @media (min-width: 768px) {
     width: 300px;
     height: 300px;
@@ -289,9 +299,9 @@ const Img = styled.img`
 `;
 
 const BtnBox = styled.div`
-  margin-top: 7vh;
-  width: 330px;
-  height: 170px;
+  margin-top: 5vh;
+  width: 310px;
+  height: 154px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -314,9 +324,9 @@ const SelectBtn = styled.div`
   border-radius: 16px;
   font-size: 16px;
   color: white;
-  width: 300px;
+  width: 280px;
   padding-left: 30px;
-  height: 80px;
+  height: 72px;
   display: flex;
   align-items: center;
   /* background-color: #1e1e1e #0fdf65; */

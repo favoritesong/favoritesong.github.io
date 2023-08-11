@@ -4,6 +4,9 @@ import { styled, keyframes } from "styled-components";
 import { faSearch, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import Album1 from "../components/Album1";
+import Album2 from "../components/Album2";
+import Demo from "../components/demoVer";
 
 function LandingPage() {
   const containerRef = useRef(null);
@@ -12,31 +15,22 @@ function LandingPage() {
   // useEffect(() => {
   //   let inChildren = (
   //     <React.Fragment>
-  //       <Album wait={0} />
-  //       <Album wait={1} />
-  //       <Album wait={2} />
+  //       <Album1 />
+  //       <Album2 />
   //     </React.Fragment>
   //   );
   //   if (matchMedia("screen and (min-width: 992px)").matches) {
   //     inChildren = (
   //       <React.Fragment>
-  //         <Album wait={0} />
-  //         <Album wait={1} />
-  //         <Album wait={2} />
-  //         <Album wait={3} />
-  //         <Album wait={4} />
-  //         <Album wait={5} />
-  //         <Album wait={6} />
-  //         <Album wait={7} />
+  //         <Album1 />
+  //         <Album2 />
   //       </React.Fragment>
   //     );
   //   } else if (matchMedia("screen and (min-width: 768px)").matches) {
   //     inChildren = (
   //       <React.Fragment>
-  //         <Album wait={0} />
-  //         <Album wait={1} />
-  //         <Album wait={2} />
-  //         <Album wait={3} />
+  //         <Album1 />
+  //         <Album2 />
   //       </React.Fragment>
   //     );
   //   }
@@ -57,7 +51,9 @@ function LandingPage() {
         </SearchIcon>
         <SearchText>나와 가장 잘 어울리는 노래는?</SearchText>
       </SearchBar>
-      {/* <Container1 ref={containerRef}></Container1> */}
+      <DemoBox>
+        <Demo />
+      </DemoBox>
       <Btn
         onClick={() => {
           onClick();
@@ -93,6 +89,12 @@ const btnFadein = keyframes`
     }
   `;
 
+const DemoBox = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+`;
+
 const Body = styled.div`
   width: 100vw;
   height: 100vh;
@@ -104,7 +106,7 @@ const Body = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: 15vh;
+  margin-top: 8vh;
   font-family: Pretendard;
   font-weight: 700;
   font-size: 30px;
@@ -123,7 +125,7 @@ const Title = styled.div`
 `;
 
 const SearchBar = styled.div`
-  margin-bottom: 7vh;
+  margin-bottom: 10vh;
   margin-top: 4vh;
   background-color: rgba(0, 0, 0, 0);
   border: 2px white solid;
@@ -177,10 +179,15 @@ const SearchText = styled.span`
 `;
 
 const Container1 = styled.div`
+  display: flex;
+  justify-content: center;
   margin-top: 3vh;
-  width: 100vw;
+  overflow: hidden;
+  width: calc(100vw);
+  display: flex;
+  justify-content: space-between;
   height: 150px;
-  position: relative;
+  animation: ${titleFadein} 1s linear forwards;
   @media (min-width: 768px) {
     height: 240px;
   }
@@ -194,8 +201,8 @@ const Btn = styled.div`
   font-family: Pretendard;
   cursor: pointer;
   margin-top: 15vh;
-  width: 340px;
-  height: 60px;
+  width: 300px;
+  height: 50px;
   border-radius: 30px;
   background: linear-gradient(#15d294 0%, #07c742 100%);
   font-weight: 700;

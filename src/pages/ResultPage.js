@@ -332,8 +332,8 @@ const Body = styled.div`
 
 const Title = styled.div`
   font-family: Pretendard;
-  margin-top: 3vh;
-  font-size: 32px;
+  margin-top: 2vh;
+  font-size: 28px;
   font-weight: 700;
   color: white;
   @media (min-width: 768px) {
@@ -345,8 +345,8 @@ const Title = styled.div`
 `;
 
 const Img = styled.img`
-  width: 270px;
-  height: 270px;
+  width: 240px;
+  height: 240px;
   margin-top: 2vh;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
@@ -388,7 +388,7 @@ const TextBox = styled.div`
   padding-right: 5px;
   padding-top: 15px;
   padding-bottom: 15px;
-  height: 120px;
+  height: 140px;
   ${(prop) =>
     css`
       background-color: ${prop.tcolor};
@@ -419,7 +419,7 @@ const TextBox = styled.div`
 
 const MainText = styled.div`
   margin-top: 2vh;
-  width: 270px;
+  width: 240px;
   font-family: Pretendard;
   font-size: 24px;
   font-weight: 700;
@@ -436,7 +436,7 @@ const MainText = styled.div`
 `;
 
 const SubText = styled.div`
-  width: 270px;
+  width: 240px;
   font-family: Pretendard;
   font-size: 14px;
   font-weight: 700;
