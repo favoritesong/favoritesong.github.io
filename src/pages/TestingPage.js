@@ -146,15 +146,15 @@ function TestingPage() {
     if (matchMedia("screen and (min-width: 992px)").matches) {
       setTimeout(() => {
         setImgProgress(imgProgress + 1);
-      }, 300);
+      }, 450);
     } else if (matchMedia("screen and (min-width: 768px)").matches) {
       setTimeout(() => {
         setImgProgress(imgProgress + 1);
-      }, 500);
+      }, 400);
     } else {
       setTimeout(() => {
         setImgProgress(imgProgress + 1);
-      }, 250);
+      }, 200);
     }
     return () => {
       clearTimeout();

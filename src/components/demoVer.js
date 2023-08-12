@@ -22,13 +22,13 @@ function Demo() {
     setCover(img[random]);
   }, []);
 
-  useEffect(() => {
-    setInterval(() => {
-      console.log(1);
-      const random = parseInt(Math.random() * img.length);
-      setCover(img[random]);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     console.log(1);
+  //     const random = parseInt(Math.random() * img.length);
+  //     setCover(img[random]);
+  //   }, 3000);
+  // }, []);
 
   return <>{cover && <Img src={cover} />}</>;
 }
