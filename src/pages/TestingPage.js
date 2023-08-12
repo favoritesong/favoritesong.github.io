@@ -154,7 +154,7 @@ function TestingPage() {
     } else {
       setTimeout(() => {
         setImgProgress(imgProgress + 1);
-      }, 200);
+      }, 300);
     }
     return () => {
       clearTimeout();
