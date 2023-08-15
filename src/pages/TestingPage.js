@@ -131,7 +131,6 @@ function TestingPage() {
     setSelect(num);
     onPoint(prop);
     setCan(false);
-    fastImg();
     setTimeout(() => {
       setProgress(progress + 1);
       setSelect(0);
@@ -174,12 +173,14 @@ function TestingPage() {
     };
   }, [progress]);
 
-  const onImg = () => {
-    return question[imgProgress].img;
+  const onImg = (prop) => {
+    return question[prop].img;
   };
 
   const onPoint = (prop) => {
-    setMbti({ ...mbti, [prop]: mbti[prop] + 1 });
+    const updatedMbti = Object.assign({}, mbti);
+    updatedMbti[prop] = mbti[prop] + 1;
+    setMbti(updatedMbti);
   };
 
   return (
@@ -190,7 +191,9 @@ function TestingPage() {
           percent={question.length - 1}></ProgressBar>
       </ProgressBackGround>
       <Question>{question[progress].text}</Question>
-      <Img src={onImg()} />
+      {question.map((element, index) => (
+        <Img src={onImg(index)} progress={progress} this={index} key={index} />
+      ))}
       <BtnBox>
         <SelectBtn
           onClick={() => {
@@ -284,6 +287,7 @@ const Question = styled.div`
 `;
 
 const Img = styled.img`
+  display: ${(prop) => (prop.this == prop.progress ? "inline" : "none")};
   margin-top: 3vh;
   width: 180px;
   height: 180px;

@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { styled, css } from "styled-components";
+import GoogleTagManager from "../google";
 
 function ResultPage() {
   const { mbti } = useParams();
@@ -288,32 +289,35 @@ function ResultPage() {
   };
 
   return (
-    <Body color1={result[mbti].color1} color2={result[mbti].color2}>
-      <Title>내 최애곡은?</Title>
-      <Container>
-        <Img src={onImg()} />
-        <TextContainer>
-          <MainText>{result[mbti].title}</MainText>
-          <SubText text={result[mbti].text}>
-            {result[mbti].subTitle}
-            <SubImg src={onSubImg()} />
-          </SubText>
-        </TextContainer>
-        <TextBox tcolor={result[mbti].tcolor}>
-          {result[mbti].text1}
-          <br />
-          {result[mbti].text2}
-          <br />
-          {result[mbti].text3}
-          <br />
-          {result[mbti].text4}
-          <br />
-          {result[mbti].text5}
-          <br />
-          {result[mbti].text6}
-        </TextBox>
-      </Container>
-    </Body>
+    <React.Fragment>
+      <GoogleTagManager gtmId='G-NRVMPVQEDE' />
+      <Body color1={result[mbti].color1} color2={result[mbti].color2}>
+        <Title>내 최애곡은?</Title>
+        <Container>
+          <Img src={onImg()} />
+          <TextContainer>
+            <MainText>{result[mbti].title}</MainText>
+            <SubText text={result[mbti].text}>
+              {result[mbti].subTitle}
+              <SubImg src={onSubImg()} />
+            </SubText>
+          </TextContainer>
+          <TextBox tcolor={result[mbti].tcolor}>
+            {result[mbti].text1}
+            <br />
+            {result[mbti].text2}
+            <br />
+            {result[mbti].text3}
+            <br />
+            {result[mbti].text4}
+            <br />
+            {result[mbti].text5}
+            <br />
+            {result[mbti].text6}
+          </TextBox>
+        </Container>
+      </Body>
+    </React.Fragment>
   );
 }
 
@@ -322,7 +326,7 @@ export default ResultPage;
 const Body = styled.div`
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -332,8 +336,8 @@ const Body = styled.div`
 
 const Title = styled.div`
   font-family: Pretendard;
-  margin-top: 2vh;
-  font-size: 28px;
+  margin-top: 3vh;
+  font-size: 32px;
   font-weight: 700;
   color: white;
   @media (min-width: 768px) {
@@ -345,8 +349,8 @@ const Title = styled.div`
 `;
 
 const Img = styled.img`
-  width: 240px;
-  height: 240px;
+  width: 270px;
+  height: 270px;
   margin-top: 2vh;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
@@ -377,18 +381,26 @@ const SubImg = styled.img`
 `;
 
 const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  width: 246px;
+  padding-left: 4px;
+  @media (min-width: 992px) {
+    width: 450px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const TextBox = styled.div`
+  letter-spacing: 0px;
+  margin-bottom: 50px;
   font-family: Pretendard;
-  width: 340px;
-  padding-left: 10px;
+  width: 300px;
+  padding-left: 22px;
   padding-right: 5px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  height: 140px;
+  padding-top: 20px;
+  padding-bottom: 23px;
+  height: 174px;
   ${(prop) =>
     css`
       background-color: ${prop.tcolor};
@@ -398,7 +410,7 @@ const TextBox = styled.div`
   color: white;
   font-size: 16px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 28px;
   @media (min-width: 768px) {
     width: 430px;
     padding-left: 20px;
@@ -424,7 +436,6 @@ const MainText = styled.div`
   font-size: 24px;
   font-weight: 700;
   color: white;
-  margin-left: 5px;
   @media (min-width: 768px) {
     width: 350px;
     font-size: 28px;

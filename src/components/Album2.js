@@ -11,7 +11,7 @@ function Album2() {
     setCover(img[random]);
   }, []);
 
-  return <>{cover && <Img src={cover} />}</>;
+  return <React.Fragment>{cover && <Img src={cover} />}</React.Fragment>;
 }
 
 export default Album2;

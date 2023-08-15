@@ -30,7 +30,7 @@ function Demo() {
   //   }, 3000);
   // }, []);
 
-  return <>{cover && <Img src={cover} />}</>;
+  return <React.Fragment>{cover && <Img src={cover} />}</React.Fragment>;
 }
 
 export default Demo;
