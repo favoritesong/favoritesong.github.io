@@ -6,12 +6,15 @@ import ResultPage from "./pages/ResultPage";
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' element={<LandingPage />} />
-      <Route path='/test' element={<TestingPage />} />
-      <Route path='/find/:E/:I/:N/:S/:T/:F/:P/:J' element={<FindingPage />} />
-      <Route path='/result/:mbti' element={<ResultPage />} />
-    </Routes>
+    <>
+      <GoogleTagManager gtmId='G-NRVMPVQEDE' />
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/test' element={<TestingPage />} />
+        <Route path='/find/:E/:I/:N/:S/:T/:F/:P/:J' element={<FindingPage />} />
+        <Route path='/result/:mbti' element={<ResultPage />} />
+      </Routes>
+    </>
   );
 }
 

@@ -290,7 +290,6 @@ function ResultPage() {
 
   return (
     <React.Fragment>
-      <GoogleTagManager gtmId='G-NRVMPVQEDE' />
       <Body color1={result[mbti].color1} color2={result[mbti].color2}>
         <Title>내 최애곡은?</Title>
         <Container>
