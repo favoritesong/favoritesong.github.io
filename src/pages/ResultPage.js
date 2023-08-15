@@ -395,7 +395,7 @@ const TextBox = styled.div`
   font-family: Pretendard;
   width: 310px;
   padding-left: 12px;
-  padding-right: 5px;
+  padding-right: 12px;
   padding-top: 20px;
   padding-bottom: 20px;
   height: 174px;
