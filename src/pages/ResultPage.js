@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { styled, css } from "styled-components";
-import GoogleTagManager from "../google";
 
 function ResultPage() {
   const { mbti } = useParams();
@@ -394,11 +393,11 @@ const TextBox = styled.div`
   letter-spacing: 0px;
   margin-bottom: 50px;
   font-family: Pretendard;
-  width: 300px;
-  padding-left: 22px;
+  width: 310px;
+  padding-left: 12px;
   padding-right: 5px;
   padding-top: 20px;
-  padding-bottom: 23px;
+  padding-bottom: 20px;
   height: 174px;
   ${(prop) =>
     css`
