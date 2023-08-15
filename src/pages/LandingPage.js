@@ -49,7 +49,7 @@ function LandingPage() {
         <SearchIcon>
           <FontAwesomeIcon icon={faSearch} />
         </SearchIcon>
-        <SearchText>나와 가장 잘 어울리는 노래는?</SearchText>
+        <SearchText>나와 가장 잘 어울리는 노래는??</SearchText>
       </SearchBar>
       <DemoBox>
         <Demo />
